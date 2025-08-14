@@ -1,0 +1,2168 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>St. Xavier's School Sahibganj</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&family=Playfair+Display:wght@400;500;600;700;800;900&family=Poppins:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        :root {
+            --primary-color: #2E7D32;
+            --primary-dark: #1B5E20;
+            --primary-light: #4CAF50;
+            --primary-ultra-light: #E8F5E8;
+            --secondary-color: #1A5B2F;
+            --accent-color: #FF6B35;
+            --accent-light: #FF8A65;
+            --text-dark: #1A1A1A;
+            --text-medium: #4A4A4A;
+            --text-light: #6B7280;
+            --text-lighter: #9CA3AF;
+            --bg-primary: #FAFFFE;
+            --bg-secondary: #F8FFF8;
+            --bg-white: #FFFFFF;
+            --bg-card: #FDFDFD;
+            --border-light: #E5E7EB;
+            --border-medium: #D1D5DB;
+            --shadow-xs: 0 1px 3px rgba(0, 0, 0, 0.05);
+            --shadow-sm: 0 2px 8px rgba(0, 0, 0, 0.06);
+            --shadow-md: 0 4px 25px rgba(0, 0, 0, 0.08);
+            --shadow-lg: 0 8px 40px rgba(0, 0, 0, 0.12);
+            --shadow-xl: 0 20px 60px rgba(0, 0, 0, 0.15);
+            --shadow-colored: 0 8px 32px rgba(46, 125, 50, 0.15);
+            --gradient-primary: linear-gradient(135deg, #2E7D32 0%, #4CAF50 100%);
+            --gradient-secondary: linear-gradient(135deg, #FF6B35 0%, #FF8A65 100%);
+            --gradient-hero: linear-gradient(135deg, #1B5E20 0%, #2E7D32 50%, #4CAF50 100%);
+            --gradient-card: linear-gradient(145deg, #FFFFFF 0%, #F9F9F9 100%);
+            --gradient-text: linear-gradient(135deg, #2E7D32 0%, #1B5E20 100%);
+            --border-radius-sm: 8px;
+            --border-radius-md: 12px;
+            --border-radius-lg: 16px;
+            --border-radius-xl: 24px;
+            --transition-fast: all 0.2s cubic-bezier(0.4, 0, 0.2, 1);
+            --transition-normal: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+            --transition-slow: all 0.5s cubic-bezier(0.4, 0, 0.2, 1);
+            --transition-bounce: all 0.4s cubic-bezier(0.68, -0.55, 0.265, 1.55);
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        *::before,
+        *::after {
+            box-sizing: border-box;
+        }
+
+        html {
+            scroll-behavior: smooth;
+            scroll-padding-top: 80px;
+        }
+
+        body {
+            font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+            line-height: 1.7;
+            color: var(--text-dark);
+            background: var(--bg-primary);
+            overflow-x: hidden;
+            font-size: 16px;
+            -webkit-font-smoothing: antialiased;
+            -moz-osx-font-smoothing: grayscale;
+        }
+
+        /* Enhanced Background Animation */
+        #background-animation {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            z-index: -2;
+            overflow: hidden;
+            background: radial-gradient(ellipse at center, #F0FFF4 0%, #E8F5E8 50%, #E0F2E0 100%);
+        }
+
+        #background-animation::before {
+            content: '';
+            position: absolute;
+            top: -50%;
+            left: -50%;
+            width: 200%;
+            height: 200%;
+            background: conic-gradient(from 0deg at 50% 50%, 
+                rgba(46, 125, 50, 0.03) 0deg, 
+                rgba(76, 175, 80, 0.05) 90deg, 
+                rgba(46, 125, 50, 0.03) 180deg, 
+                rgba(27, 94, 32, 0.02) 270deg, 
+                rgba(46, 125, 50, 0.03) 360deg);
+            animation: rotate-bg 60s linear infinite;
+        }
+
+        #background-animation svg {
+            width: 100%;
+            height: 100%;
+            opacity: 0.4;
+        }
+
+        @keyframes rotate-bg {
+            from { transform: rotate(0deg); }
+            to { transform: rotate(360deg); }
+        }
+
+        /* Floating shapes animation */
+        #red {
+            fill: none;
+            opacity: 0.08;
+            stroke: #4CAF50;
+            stroke-width: 3;
+            stroke-miterlimit: 10;
+            filter: blur(0.5px);
+            animation: float-left 12s infinite ease-in-out, pulse-green 8s infinite ease-in-out;
+        }
+
+        #blue {
+            fill: none;
+            opacity: 0.06;
+            stroke: #2E7D32;
+            stroke-width: 4;
+            stroke-miterlimit: 10;
+            filter: blur(0.8px);
+            animation: float-right 14s infinite ease-in-out, scale-breath 10s infinite ease-in-out;
+        }
+
+        #light-blue {
+            fill: none;
+            opacity: 0.12;
+            stroke: #81C784;
+            stroke-width: 2;
+            stroke-miterlimit: 10;
+            stroke-dasharray: 400;
+            stroke-dashoffset: 1600;
+            filter: blur(0.3px);
+            animation: draw-smooth 8s infinite ease-in-out, color-shift 12s infinite ease-in-out;
+        }
+
+        @keyframes draw-smooth {
+            0%, 100% { stroke-dashoffset: 1600; opacity: 0.05; }
+            50% { stroke-dashoffset: 0; opacity: 0.15; }
+        }
+
+        @keyframes float-left {
+            0%, 100% { transform: translate(-100px, -30px) rotate(0deg); opacity: 0.05; }
+            25% { transform: translate(30px, 40px) rotate(90deg); opacity: 0.12; }
+            50% { transform: translate(80px, -20px) rotate(180deg); opacity: 0.08; }
+            75% { transform: translate(-40px, 60px) rotate(270deg); opacity: 0.10; }
+        }
+
+        @keyframes float-right {
+            0%, 100% { transform: translate(120px, 40px) scale(1); opacity: 0.04; }
+            33% { transform: translate(-60px, -30px) scale(1.1); opacity: 0.08; }
+            66% { transform: translate(40px, 70px) scale(0.9); opacity: 0.06; }
+        }
+
+        @keyframes pulse-green {
+            0%, 100% { opacity: 0.05; stroke: #4CAF50; }
+            50% { opacity: 0.12; stroke: #81C784; }
+        }
+
+        @keyframes scale-breath {
+            0%, 100% { transform: scale(0.8); }
+            50% { transform: scale(1.2); }
+        }
+
+        @keyframes color-shift {
+            0%, 100% { stroke: #81C784; }
+            33% { stroke: #4CAF50; }
+            66% { stroke: #2E7D32; }
+        }
+
+        /* Premium Header */
+        #header {
+            background: var(--gradient-hero);
+            color: white;
+            padding: 3rem 0;
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+            box-shadow: var(--shadow-xl);
+            border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+        }
+
+        #header::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: linear-gradient(135deg, 
+                rgba(255, 255, 255, 0.1) 0%, 
+                transparent 30%, 
+                transparent 70%, 
+                rgba(255, 255, 255, 0.05) 100%);
+            pointer-events: none;
+        }
+
+        #header::after {
+            content: '';
+            position: absolute;
+            top: -50%;
+            left: -50%;
+            width: 200%;
+            height: 200%;
+            background: radial-gradient(circle at center, 
+                rgba(255, 255, 255, 0.05) 0%, 
+                transparent 40%);
+            animation: shimmer 15s linear infinite;
+            pointer-events: none;
+        }
+
+        @keyframes shimmer {
+            0% { transform: rotate(0deg) translate(-50%, -50%); }
+            100% { transform: rotate(360deg) translate(-50%, -50%); }
+        }
+
+        .header-content {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 3rem;
+            position: relative;
+            z-index: 10;
+            max-width: 1400px;
+            margin: 0 auto;
+            padding: 0 2rem;
+        }
+
+        .header-content h1 {
+            font-family: 'Playfair Display', serif;
+            font-size: clamp(2.5rem, 5vw, 4rem);
+            font-weight: 800;
+            margin: 0;
+            background: linear-gradient(135deg, #FFFFFF 0%, #F0F0F0 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            text-shadow: 0 4px 20px rgba(0, 0, 0, 0.3);
+            letter-spacing: -0.02em;
+            line-height: 1.2;
+            animation: slide-up 1s ease-out;
+        }
+
+        .school-logo {
+            width: clamp(100px, 12vw, 140px);
+            height: clamp(100px, 12vw, 140px);
+            border-radius: 50%;
+            border: 4px solid rgba(255, 255, 255, 0.3);
+            box-shadow: var(--shadow-xl), 0 0 40px rgba(255, 255, 255, 0.2);
+            transition: var(--transition-bounce);
+            animation: fade-scale 1s ease-out 0.3s both;
+            backdrop-filter: blur(10px);
+            position: relative;
+        }
+
+        .school-logo::before {
+            content: '';
+            position: absolute;
+            top: -4px;
+            left: -4px;
+            right: -4px;
+            bottom: -4px;
+            border-radius: 50%;
+            background: conic-gradient(from 0deg, 
+                rgba(255, 255, 255, 0.4) 0deg, 
+                rgba(255, 255, 255, 0.1) 90deg, 
+                rgba(255, 255, 255, 0.4) 180deg, 
+                rgba(255, 255, 255, 0.1) 270deg, 
+                rgba(255, 255, 255, 0.4) 360deg);
+            animation: rotate-border 4s linear infinite;
+            z-index: -1;
+        }
+
+        @keyframes rotate-border {
+            from { transform: rotate(0deg); }
+            to { transform: rotate(360deg); }
+        }
+
+        .school-logo:hover {
+            transform: scale(1.15) rotate(5deg);
+            border-color: rgba(255, 255, 255, 0.6);
+            box-shadow: var(--shadow-xl), 0 0 60px rgba(255, 255, 255, 0.4);
+        }
+
+        /* Premium Navigation */
+        nav {
+            margin-top: 3rem;
+            position: relative;
+            z-index: 10;
+        }
+
+        #nav-menu {
+            list-style: none;
+            display: flex;
+            justify-content: center;
+            flex-wrap: wrap;
+            gap: 1rem;
+            padding: 0;
+            margin: 0;
+        }
+
+        #nav-menu li {
+            margin: 0;
+        }
+
+        #nav-menu a {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            padding: 1rem 1.8rem;
+            color: white;
+            text-decoration: none;
+            border-radius: var(--border-radius-xl);
+            background: rgba(255, 255, 255, 0.15);
+            backdrop-filter: blur(20px);
+            border: 1px solid rgba(255, 255, 255, 0.2);
+            transition: var(--transition-normal);
+            font-weight: 600;
+            font-size: 0.95rem;
+            position: relative;
+            overflow: hidden;
+        }
+
+        #nav-menu a::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(90deg, 
+                transparent, 
+                rgba(255, 255, 255, 0.2), 
+                transparent);
+            transition: left 0.6s;
+        }
+
+        #nav-menu a:hover::before {
+            left: 100%;
+        }
+
+        #nav-menu a:hover {
+            background: rgba(255, 255, 255, 0.25);
+            transform: translateY(-3px);
+            box-shadow: 0 12px 40px rgba(0, 0, 0, 0.2);
+            border-color: rgba(255, 255, 255, 0.4);
+        }
+
+        /* Premium Sections */
+        section {
+            padding: 6rem 2rem;
+            margin: 3rem auto;
+            background: var(--gradient-card);
+            border-radius: var(--border-radius-xl);
+            box-shadow: var(--shadow-md);
+            max-width: 1400px;
+            position: relative;
+            overflow: hidden;
+            border: 1px solid var(--border-light);
+        }
+
+        section::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 4px;
+            background: var(--gradient-primary);
+            border-radius: var(--border-radius-xl) var(--border-radius-xl) 0 0;
+        }
+
+        section::after {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: radial-gradient(circle at top right, 
+                rgba(46, 125, 50, 0.02) 0%, 
+                transparent 50%);
+            pointer-events: none;
+        }
+
+        h2 {
+            font-family: 'Playfair Display', serif;
+            background: var(--gradient-text);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            font-size: clamp(2.2rem, 4vw, 3rem);
+            margin-bottom: 3rem;
+            text-align: center;
+            position: relative;
+            font-weight: 700;
+            letter-spacing: -0.02em;
+            line-height: 1.3;
+        }
+
+        h2::after {
+            content: '';
+            position: absolute;
+            bottom: -15px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 80px;
+            height: 4px;
+            background: var(--gradient-secondary);
+            border-radius: var(--border-radius-sm);
+        }
+
+        h2::before {
+            content: '';
+            position: absolute;
+            bottom: -25px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 40px;
+            height: 2px;
+            background: var(--primary-light);
+            border-radius: var(--border-radius-sm);
+        }
+
+        p {
+            font-size: 1.125rem;
+            line-height: 1.8;
+            color: var(--text-medium);
+            margin-bottom: 1.5rem;
+            font-weight: 400;
+        }
+
+        /* Enhanced About Section */
+        .about-container {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 3rem;
+        }
+
+        .about-container img {
+            width: 100%;
+            max-width: 700px;
+            height: auto;
+            border-radius: var(--border-radius-lg);
+            box-shadow: var(--shadow-lg);
+            transition: var(--transition-slow);
+            border: 1px solid var(--border-light);
+            opacity: 1;
+        }
+
+        .about-container img:hover {
+            transform: scale(1.02) translateY(-5px);
+            box-shadow: var(--shadow-xl);
+        }
+
+        /* Enhanced Image Loading */
+        .image-container {
+            position: relative;
+            overflow: hidden;
+            border-radius: var(--border-radius-lg);
+            background: linear-gradient(135deg, #f3f4f6 0%, #e5e7eb 100%);
+        }
+
+        .image-placeholder {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            min-height: 280px;
+            color: #9ca3af;
+            font-size: 3rem;
+            background: linear-gradient(135deg, #f8f9fa 0%, #e9ecef 100%);
+            position: relative;
+        }
+
+        .image-placeholder::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(90deg, transparent, rgba(255,255,255,0.4), transparent);
+            animation: loading-shimmer 2s infinite;
+        }
+
+        @keyframes loading-shimmer {
+            0% { left: -100%; }
+            100% { left: 100%; }
+        }
+
+        .image-loaded {
+            opacity: 0;
+            animation: fadeIn 0.5s ease-out forwards;
+        }
+
+        @keyframes fadeIn {
+            to { opacity: 1; }
+        }
+
+        /* Premium Button */
+        button {
+            background: var(--gradient-primary);
+            color: white;
+            border: none;
+            padding: 1.2rem 2.5rem;
+            border-radius: var(--border-radius-xl);
+            font-size: 1.1rem;
+            font-weight: 600;
+            cursor: pointer;
+            transition: var(--transition-normal);
+            box-shadow: var(--shadow-colored);
+            position: relative;
+            overflow: hidden;
+            font-family: 'Inter', sans-serif;
+            letter-spacing: 0.5px;
+        }
+
+        button::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(90deg, 
+                transparent, 
+                rgba(255, 255, 255, 0.3), 
+                transparent);
+            transition: left 0.5s;
+        }
+
+        button:hover::before {
+            left: 100%;
+        }
+
+        button:hover {
+            transform: translateY(-3px);
+            box-shadow: var(--shadow-xl), 0 0 30px rgba(46, 125, 50, 0.3);
+        }
+
+        button:active {
+            transform: translateY(-1px);
+        }
+
+        /* Enhanced More Content */
+        #more {
+            margin-top: 3rem;
+            padding: 3rem;
+            background: linear-gradient(135deg, #F8FFFF 0%, #F0F8FF 100%);
+            border-radius: var(--border-radius-lg);
+            border: 1px solid rgba(46, 125, 50, 0.1);
+            box-shadow: var(--shadow-sm);
+        }
+
+        #more h3 {
+            color: var(--secondary-color);
+            font-size: 1.5rem;
+            margin: 2.5rem 0 1.5rem 0;
+            font-weight: 700;
+            font-family: 'Poppins', sans-serif;
+            display: flex;
+            align-items: center;
+            gap: 0.8rem;
+        }
+
+        #more h3 i {
+            color: var(--primary-color);
+            font-size: 1.3rem;
+        }
+
+        /* Enhanced Principal Section */
+        #principal-message {
+            background: linear-gradient(135deg, #FFF8F0 0%, #FFFAF5 100%);
+        }
+
+        #principal-message img {
+            width: 100%;
+            max-width: 450px;
+            height: auto;
+            border-radius: var(--border-radius-lg);
+            box-shadow: var(--shadow-lg);
+            margin: 0 auto 3rem auto;
+            display: block;
+            transition: var(--transition-slow);
+            border: 3px solid rgba(255, 255, 255, 0.8);
+        }
+
+        #principal-message img:hover {
+            transform: scale(1.02);
+            box-shadow: var(--shadow-xl);
+        }
+
+        /* Enhanced Event/Activity/Gallery Containers */
+        .events-container, 
+        .activities-container, 
+        .gallery-container {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+            gap: 2.5rem;
+            margin: 4rem 0;
+        }
+
+        .event, 
+        .activity, 
+        .gallery-item {
+            background: var(--bg-white);
+            border-radius: var(--border-radius-lg);
+            padding: 0;
+            box-shadow: var(--shadow-sm);
+            transition: var(--transition-normal);
+            position: relative;
+            overflow: hidden;
+            border: 1px solid var(--border-light);
+            opacity: 1;
+        }
+
+        .event::before, 
+        .activity::before, 
+        .gallery-item::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 4px;
+            background: var(--gradient-secondary);
+            transform: scaleX(0);
+            transition: transform 0.4s ease;
+            z-index: 2;
+        }
+
+        .event:hover::before, 
+        .activity:hover::before, 
+        .gallery-item:hover::before {
+            transform: scaleX(1);
+        }
+
+        .event:hover, 
+        .activity:hover, 
+        .gallery-item:hover {
+            transform: translateY(-8px);
+            box-shadow: var(--shadow-xl);
+            border-color: rgba(46, 125, 50, 0.2);
+        }
+
+        .event img, 
+        .activity img, 
+        .gallery-item img {
+            width: 100%;
+            height: 280px;
+            object-fit: cover;
+            border-radius: var(--border-radius-lg) var(--border-radius-lg) 0 0;
+            transition: var(--transition-slow);
+            background: linear-gradient(135deg, #f3f4f6 0%, #e5e7eb 100%);
+        }
+
+        .event img:hover, 
+        .activity img:hover, 
+        .gallery-item img:hover {
+            transform: scale(1.05);
+        }
+
+        .event p, 
+        .activity p {
+            font-weight: 600;
+            color: var(--text-dark);
+            text-align: center;
+            font-size: 1.1rem;
+            padding: 1.5rem;
+            margin: 0;
+            line-height: 1.5;
+        }
+
+        /* Enhanced Facts Section */
+        #facts {
+            background: linear-gradient(135deg, #F0FFF4 0%, #F5FFFA 100%);
+        }
+
+        #facts ul {
+            list-style: none;
+            padding: 0;
+        }
+
+        #facts li {
+            background: var(--bg-white);
+            margin: 2rem 0;
+            padding: 2rem 2rem 2rem 4rem;
+            border-radius: var(--border-radius-lg);
+            box-shadow: var(--shadow-sm);
+            border-left: 5px solid var(--primary-color);
+            transition: var(--transition-normal);
+            position: relative;
+            border: 1px solid var(--border-light);
+        }
+
+        #facts li::before {
+            content: '\f00c';
+            font-family: 'Font Awesome 6 Free';
+            font-weight: 900;
+            position: absolute;
+            left: -3px;
+            top: 50%;
+            transform: translateY(-50%);
+            background: var(--gradient-primary);
+            color: white;
+            width: 32px;
+            height: 32px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 0.9rem;
+            box-shadow: var(--shadow-sm);
+        }
+
+        #facts li:hover {
+            transform: translateX(15px);
+            box-shadow: var(--shadow-lg);
+            border-left-color: var(--accent-color);
+        }
+
+        /* Enhanced Quiz Section */
+        form {
+            background: var(--bg-white);
+            padding: 4rem;
+            border-radius: var(--border-radius-xl);
+            box-shadow: var(--shadow-lg);
+            max-width: 900px;
+            margin: 3rem auto;
+            border: 1px solid var(--border-light);
+        }
+
+        .question {
+            background: linear-gradient(135deg, #F8F9FF 0%, #F0F4F8 100%);
+            padding: 2.5rem;
+            margin: 2.5rem 0;
+            border-radius: var(--border-radius-lg);
+            border: 1px solid rgba(46, 125, 50, 0.1);
+            transition: var(--transition-normal);
+            position: relative;
+        }
+
+        .question::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 3px;
+            background: var(--gradient-primary);
+            border-radius: var(--border-radius-lg) var(--border-radius-lg) 0 0;
+            opacity: 0;
+            transition: opacity 0.3s ease;
+        }
+
+        .question:hover {
+            border-color: var(--primary-light);
+            box-shadow: var(--shadow-md);
+            transform: translateY(-2px);
+        }
+
+        .question:hover::before {
+            opacity: 1;
+        }
+
+        .question label {
+            font-size: 1.2rem;
+            font-weight: 700;
+            color: var(--text-dark);
+            margin-bottom: 1.5rem;
+            display: block;
+            font-family: 'Poppins', sans-serif;
+        }
+
+        .question input[type="radio"] {
+            margin: 0.8rem 1.2rem 0.8rem 0;
+            transform: scale(1.3);
+            accent-color: var(--primary-color);
+        }
+
+        .question label[for*="q"] {
+            font-weight: 500;
+            font-size: 1.05rem;
+            display: inline;
+            margin-left: 0.5rem;
+            cursor: pointer;
+            font-family: 'Inter', sans-serif;
+            transition: var(--transition-fast);
+        }
+
+        .question label[for*="q"]:hover {
+            color: var(--primary-color);
+        }
+
+        /* Enhanced Result Section */
+        #result {
+            background: var(--bg-white);
+            padding: 3rem;
+            margin: 3rem auto;
+            border-radius: var(--border-radius-xl);
+            box-shadow: var(--shadow-lg);
+            text-align: center;
+            max-width: 700px;
+            border: 1px solid var(--border-light);
+        }
+
+        .feedback {
+            font-size: 1.1rem;
+            line-height: 1.7;
+        }
+
+        /* Enhanced Footer */
+        footer {
+            background: linear-gradient(135deg, var(--text-dark) 0%, #0F172A 100%);
+            color: white;
+            text-align: center;
+            padding: 4rem 2rem 3rem;
+            margin-top: 6rem;
+            position: relative;
+            overflow: hidden;
+        }
+
+        footer::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 5px;
+            background: var(--gradient-primary);
+        }
+
+        footer::after {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: radial-gradient(ellipse at center top, 
+                rgba(46, 125, 50, 0.1) 0%, 
+                transparent 60%);
+            pointer-events: none;
+        }
+
+        #mamchange {
+            color: var(--primary-light);
+            text-decoration: none;
+            font-weight: 700;
+            transition: var(--transition-normal);
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+
+        #mamchange:hover {
+            color: white;
+            text-shadow: 0 0 20px var(--primary-light);
+            transform: translateY(-2px);
+        }
+
+        /* Enhanced Conclusion Section */
+        #conclusion {
+            background: linear-gradient(135deg, #FFF8F0 0%, #FFF5F0 100%);
+            text-align: center;
+        }
+
+        #conclusion a {
+            color: var(--primary-color);
+            text-decoration: none;
+            font-weight: 700;
+            transition: var(--transition-normal);
+        }
+
+        #conclusion a:hover {
+            color: var(--primary-dark);
+            text-shadow: 0 2px 8px rgba(46, 125, 50, 0.2);
+        }
+
+        /* Premium Animations */
+        @keyframes slide-up {
+            from {
+                opacity: 0;
+                transform: translateY(40px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        @keyframes fade-scale {
+            from {
+                opacity: 0;
+                transform: scale(0.8);
+            }
+            to {
+                opacity: 1;
+                transform: scale(1);
+            }
+        }
+
+        @keyframes fade-in-up {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        @keyframes slide-in-left {
+            from {
+                opacity: 0;
+                transform: translateX(-40px);
+            }
+            to {
+                opacity: 1;
+                transform: translateX(0);
+            }
+        }
+
+        @keyframes bounce-in {
+            0% {
+                opacity: 0;
+                transform: scale(0.3);
+            }
+            50% {
+                transform: scale(1.05);
+            }
+            70% {
+                transform: scale(0.9);
+            }
+            100% {
+                opacity: 1;
+                transform: scale(1);
+            }
+        }
+
+        /* Enhanced Responsive Design */
+        @media (max-width: 1200px) {
+            .header-content {
+                gap: 2rem;
+            }
+            
+            section {
+                margin: 2rem 1rem;
+                padding: 4rem 1.5rem;
+            }
+        }
+
+        @media (max-width: 768px) {
+            .header-content {
+                flex-direction: column;
+                gap: 1.5rem;
+                padding: 0 1rem;
+            }
+
+            .header-content h1 {
+                font-size: clamp(2rem, 6vw, 2.5rem);
+                text-align: center;
+            }
+
+            #nav-menu {
+                justify-content: center;
+                gap: 0.5rem;
+            }
+
+            #nav-menu a {
+                padding: 0.8rem 1.2rem;
+                font-size: 0.9rem;
+            }
+
+            section {
+                margin: 1.5rem 0.5rem;
+                padding: 3rem 1.5rem;
+            }
+
+            h2 {
+                font-size: clamp(1.8rem, 5vw, 2.2rem);
+                margin-bottom: 2rem;
+            }
+
+            .events-container, 
+            .activities-container, 
+            .gallery-container {
+                grid-template-columns: 1fr;
+                gap: 2rem;
+            }
+
+            form {
+                padding: 2.5rem 1.5rem;
+                margin: 2rem 0.5rem;
+            }
+
+            .question {
+                padding: 2rem 1.5rem;
+            }
+
+            #more {
+                padding: 2rem 1.5rem;
+            }
+
+            button {
+                padding: 1rem 2rem;
+                font-size: 1rem;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .header-content h1 {
+                font-size: 1.8rem;
+                line-height: 1.3;
+            }
+
+            .school-logo {
+                width: 80px;
+                height: 80px;
+            }
+
+            #nav-menu a {
+                padding: 0.6rem 1rem;
+                font-size: 0.85rem;
+            }
+
+            section {
+                padding: 2rem 1rem;
+                margin: 1rem 0.25rem;
+            }
+
+            h2 {
+                font-size: 1.6rem;
+                margin-bottom: 1.5rem;
+            }
+
+            p {
+                font-size: 1rem;
+            }
+
+            .question label {
+                font-size: 1.1rem;
+            }
+
+            .question label[for*="q"] {
+                font-size: 1rem;
+            }
+
+            #facts li {
+                padding: 1.5rem 1.5rem 1.5rem 3rem;
+            }
+        }
+
+        /* Loading States */
+        .loading {
+            opacity: 0;
+            animation: fade-in-up 0.8s ease-out forwards;
+        }
+
+        .loading:nth-child(1) { animation-delay: 0.1s; }
+        .loading:nth-child(2) { animation-delay: 0.2s; }
+        .loading:nth-child(3) { animation-delay: 0.3s; }
+        .loading:nth-child(4) { animation-delay: 0.4s; }
+        .loading:nth-child(5) { animation-delay: 0.5s; }
+
+        /* Scroll Animations */
+        .animate-on-scroll {
+            opacity: 0;
+            transform: translateY(30px);
+            transition: var(--transition-slow);
+        }
+
+        .animate-on-scroll.animated {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        /* Enhanced Focus States */
+        button:focus,
+        input:focus,
+        a:focus {
+            outline: 3px solid var(--primary-light);
+            outline-offset: 3px;
+            border-radius: var(--border-radius-sm);
+        }
+
+        /* High Contrast Mode */
+        @media (prefers-contrast: high) {
+            :root {
+                --shadow-sm: 0 2px 8px rgba(0, 0, 0, 0.4);
+                --shadow-md: 0 4px 25px rgba(0, 0, 0, 0.5);
+                --shadow-lg: 0 8px 40px rgba(0, 0, 0, 0.6);
+                --shadow-xl: 0 20px 60px rgba(0, 0, 0, 0.7);
+            }
+        }
+
+        /* Reduced Motion */
+        @media (prefers-reduced-motion: reduce) {
+            *,
+            *::before,
+            *::after {
+                animation-duration: 0.01ms !important;
+                animation-iteration-count: 1 !important;
+                transition-duration: 0.01ms !important;
+            }
+        }
+
+        /* Print Styles */
+        @media print {
+            #background-animation,
+            nav,
+            button,
+            #nav-menu {
+                display: none !important;
+            }
+            
+            body {
+                background: white !important;
+                color: black !important;
+            }
+            
+            section {
+                box-shadow: none !important;
+                border: 1px solid #ccc;
+                page-break-inside: avoid;
+            }
+
+            h1, h2, h3 {
+                color: black !important;
+                -webkit-text-fill-color: black !important;
+            }
+        }
+
+        /* Selection Styling */
+        ::selection {
+            background: rgba(46, 125, 50, 0.2);
+            color: var(--text-dark);
+        }
+
+        ::-moz-selection {
+            background: rgba(46, 125, 50, 0.2);
+            color: var(--text-dark);
+        }
+
+        /* Scrollbar Styling */
+        ::-webkit-scrollbar {
+            width: 8px;
+        }
+
+        ::-webkit-scrollbar-track {
+            background: var(--bg-secondary);
+        }
+
+        ::-webkit-scrollbar-thumb {
+            background: var(--gradient-primary);
+            border-radius: 4px;
+        }
+
+        ::-webkit-scrollbar-thumb:hover {
+            background: var(--primary-dark);
+        }
+
+        /* Error State for Images */
+        .image-error {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            min-height: 280px;
+            background: linear-gradient(135deg, #f8f9fa 0%, #e9ecef 100%);
+            color: #6c757d;
+            font-size: 1.2rem;
+            border-radius: var(--border-radius-lg);
+            border: 2px dashed #dee2e6;
+        }
+
+        /* Pulse animation for heart */
+        @keyframes pulse {
+            0%, 100% { transform: scale(1); }
+            50% { transform: scale(1.1); }
+        }
+
+        .pulse {
+            animation: pulse 2s infinite;
+        }
+    </style>
+</head>
+
+<body>
+    <!-- Premium Background Animation -->
+    <div id="background-animation">
+        <svg width="100%" height="100%" viewBox="0 0 800 600" preserveAspectRatio="xMidYMid meet">
+            <defs>
+                <clipPath id="cache">
+                    <circle cx="400" cy="300" r="300"></circle>
+                </clipPath>
+                <filter id="glow">
+                    <feGaussianBlur stdDeviation="3" result="coloredBlur"/>
+                    <feMerge> 
+                        <feMergeNode in="coloredBlur"/>
+                        <feMergeNode in="SourceGraphic"/>
+                    </feMerge>
+                </filter>
+            </defs>
+            <circle id="red" cx="150" cy="300" r="200" filter="url(#glow)"></circle>
+            <circle id="blue" cx="650" cy="300" r="250" filter="url(#glow)"></circle>
+            <circle id="light-blue" cx="400" cy="300" r="280" filter="url(#glow)"></circle>
+        </svg>
+    </div>
+
+    <!-- Premium Header -->
+    <header id="header">
+        <div class="header-content">
+            <h1>Welcome to St. Xavier's School Sahibganj</h1>
+            <div class="logo-container">
+                <img src="https://shayanraza0710.github.io/St-Xaviers-School-Sahibganj/logosch.png" alt="School Logo" class="school-logo" 
+                     onerror="this.src='/api/placeholder/140/140'; this.alt='School Logo';">
+            </div>
+        </div>
+        
+        <nav>
+            <ul id="nav-menu">
+                <li><a href="#about"><i class="fas fa-info-circle"></i> About Us</a></li>
+                <li><a href="#principal-message"><i class="fas fa-user-tie"></i> Principal's Message</a></li>
+                <li><a href="#events"><i class="fas fa-calendar-alt"></i> Events</a></li>
+                <li><a href="#activities"><i class="fas fa-running"></i> Activities</a></li>
+                <li><a href="#gallery"><i class="fas fa-images"></i> Photo Gallery</a></li>
+                <li><a href="#facts"><i class="fas fa-lightbulb"></i> Facts</a></li>
+                <li><a href="#Schoolkaquiz"><i class="fas fa-question-circle"></i> School Quiz</a></li>
+                <li><a href="#conclusion"><i class="fas fa-graduation-cap"></i> Conclusion</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <!-- About Us Section -->
+    <section id="about" class="animate-on-scroll">
+        <h2>About Us</h2>
+        <div class="about-container">
+            <div class="image-container">
+                <img src="https://shayanraza0710.github.io/St-Xaviers-School-Sahibganj/school.png" alt="St. Xavier's School" class="lazy-image"
+                     onerror="handleImageError(this)">
+            </div>
+            <div>
+                <p>
+                    St. Xavier's School Sahibganj, often referred to as simply "Xavier's Sahibganj," is a renowned educational institution located in Sahibganj, Jharkhand, India. Established and managed by the Jesuits, a Catholic religious order known for their contributions to education and social service, the school is widely regarded for its commitment to academic excellence, character development, and community engagement.
+                </p>
+                <button onclick="toggleReadMore()" aria-label="Read more about the school">
+                    <i class="fas fa-book-open"></i> Read More
+                </button>
+
+                <div id="more" style="display:none;">
+                    <h3><i class="fas fa-history"></i> History</h3>
+                    <p>
+                        St. Xavier's School Sahibganj has a rich history dating back several decades. Founded with the vision of providing quality education to the youth of the region, the school nurtures students into responsible and compassionate individuals. Over the years, it has grown significantly in both infrastructure and reputation.
+                    </p>
+                    
+                    <h3><i class="fas fa-building"></i> Campus and Facilities</h3>
+                    <p>
+                        The school's campus is characterized by serene and spacious surroundings, providing an ideal environment for learning and personal growth. It features modern classrooms, well-equipped science and computer labs, a library with a vast collection of books, and sports facilities that encourage physical fitness and extracurricular activities. The campus also hosts spaces for cultural and artistic pursuits, including music and art rooms.
+                    </p>
+                    
+                    <h3><i class="fas fa-graduation-cap"></i> Educational Programs</h3>
+                    <p>
+                        St. Xavier's School Sahibganj offers a comprehensive educational program that spans from primary to secondary education. The school is affiliated with the Indian Certificate of Secondary Education (ICSE), known for its rigorous academic standards. The curriculum emphasizes holistic development, focusing on academic excellence as well as moral and ethical values.
+                    </p>
+                    
+                    <h3><i class="fas fa-chalkboard-teacher"></i> Faculty and Staff</h3>
+                    <p>
+                        The school is staffed by a team of highly qualified and dedicated educators who nurture the intellectual, moral, and social growth of their students. The faculty members are known for their teaching excellence and their ability to inspire and guide students.
+                    </p>
+                    
+                    <h3><i class="fas fa-theater-masks"></i> Extracurricular Activities</h3>
+                    <p>
+                        St. Xavier's School Sahibganj places great importance on extracurricular activities to ensure the holistic development of its students. These activities include sports, cultural events, debates, quizzes, and community service projects. Students are encouraged to participate in various clubs and societies, enabling them to explore their talents and interests beyond the classroom.
+                    </p>
+                    
+                    <h3><i class="fas fa-heart"></i> Values and Character Formation</h3>
+                    <p>
+                        As a Jesuit institution, Xavier's Sahibganj places a strong emphasis on values and character formation. The school aims to instill in its students a sense of social responsibility, compassion, and a commitment to justice and equality. The Jesuit motto "Magis," which means "striving for the greater," underscores the school's commitment to excellence and continuous improvement in all aspects of education and life.
+                    </p>
+                    
+                    <h3><i class="fas fa-hands-helping"></i> Community Engagement</h3>
+                    <p>
+                        St. Xavier's School Sahibganj is deeply involved in community engagement and social service initiatives. Students are encouraged to participate in outreach programs, volunteering, and community development projects that serve the needs of the local community.
+                    </p>
+                    
+                    <h3><i class="fas fa-user-friends"></i> Alumni Network</h3>
+                    <p>
+                        The school boasts an active and engaged alumni network that extends across various fields and professions. Alumni often return to the school to mentor and inspire current students, fostering a sense of continuity and pride in their alma mater.
+                    </p>
+                    
+                    <p>
+                        In conclusion, St. Xavier's School Sahibganj stands as a beacon of quality education and values-based learning in the region. It continues to prepare young minds to excel academically, embrace moral and ethical values, and become responsible global citizens who make a positive impact on society.
+                    </p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Principal's Message Section -->
+    <section id="principal-message" class="animate-on-scroll">
+        <h2>Principal's Message</h2>
+        <div class="image-container">
+            <img src="https://shayanraza0710.github.io/St-Xaviers-School-Sahibganj/principal.png" alt="Principal" class="lazy-image"
+                 onerror="handleImageError(this)">
+        </div>
+        
+        <p><strong>Dear Parents and Students,</strong></p>
+
+        <p>
+            Welcome to St. Xavier's School Sahibganj! It is with great pleasure that I extend a warm invitation to you to be part of our vibrant school community. As the principal of this esteemed institution, I am proud to share our commitment to academic excellence, character formation, and holistic development.
+        </p>
+        
+        <p>
+            Founded on the principles of the Society of Jesus, our vision is to foster holistic development in our students, encouraging them to become stewards of peace and justice in society.
+        </p>
+        
+        <p>
+            Education is not merely the accumulation of knowledge; it is the cultivation of character, resilience, and a passion for learning. At St. Xavier's, we strive to create an environment that fosters intellectual curiosity and a sense of wonder. Our dedicated faculty members work tirelessly to ignite the spark of knowledge in our students, guiding them through their educational journey with care and commitment.
+        </p>
+        
+        <p>
+            As we navigate the challenges of the 21st century, we remain committed to providing a holistic education that encompasses academic excellence, personal growth, and social responsibility. Our diverse array of extracurricular activities, community engagement initiatives, and emphasis on values education further enrich the student experience.
+        </p>
+        
+        <p>
+            Together, let us embark on this transformative journey, inspiring our children to reach their fullest potential and to make a meaningful impact in the world. I invite parents, teachers, and students to work in partnership, fostering a spirit of collaboration and shared responsibility for the growth and development of our children.
+        </p>
+        
+        <p>
+            In the words of Saint Ignatius of Loyola, "Go forth and set the world on fire." Let us inspire our students to do just that—be the change-makers and leaders of tomorrow.
+        </p>
+        
+        <p><strong>REV. A. ARUL DOSS S.J</strong><br><em>The Principal</em></p>
+    </section>
+
+    <!-- Events Section -->
+    <section id="events" class="animate-on-scroll">
+        <h2>Events</h2>
+        <p>
+            At St. Xavier's School Sahibganj, we celebrate a vibrant array of events throughout the academic year. These events not only enhance the educational experience but also foster a sense of community and school spirit among students, parents, and staff.
+        </p>
+        
+        <div class="events-container">
+            <div class="event loading">
+                <div class="image-container">
+                    <img src="https://shayanraza0710.github.io/St-Xaviers-School-Sahibganj/ev.jpeg" alt="Annual Prize Distribution Ceremony" class="lazy-image"
+                         onerror="handleImageError(this)">
+                </div>
+                <p><i class="fas fa-trophy"></i> ANNUAL PRIZE DISTRIBUTION CEREMONY 2023 - 24</p>
+            </div>
+
+            <div class="event loading">
+                <div class="image-container">
+                    <img src="https://shayanraza0710.github.io/St-Xaviers-School-Sahibganj/helloworld.jpeg" alt="Teacher's Day" class="lazy-image"
+                         onerror="handleImageError(this)">
+                </div>
+                <p><i class="fas fa-apple-alt"></i> TEACHER'S DAY</p>
+            </div>
+
+            <div class="event loading">
+                <div class="image-container">
+                    <img src="https://shayanraza0710.github.io/St-Xaviers-School-Sahibganj/even.jpeg" alt="Investiture Ceremony" class="lazy-image"
+                         onerror="handleImageError(this)">
+                </div>
+                <p><i class="fas fa-medal"></i> THE INVESTITURE CEREMONY 2024</p>
+            </div>
+
+            <div class="event loading">
+                <div class="image-container">
+                    <img src="https://shayanraza0710.github.io/St-Xaviers-School-Sahibganj/event.jpeg" alt="Kolkata Excursion" class="lazy-image"
+                         onerror="handleImageError(this)">
+                </div>
+                <p><i class="fas fa-bus"></i> KOLKATA EXCURSION</p>
+            </div>
+
+            <div class="event loading">
+                <div class="image-container">
+                    <img src="https://shayanraza0710.github.io/St-Xaviers-School-Sahibganj/picturesc.jpeg" alt="Elocution Contest" class="lazy-image"
+                         onerror="handleImageError(this)">
+                </div>
+                <p><i class="fas fa-microphone"></i> FR.E. STELLINI MEMORIAL ELOCUTION AND EXTEMPORE CONTEST 2024</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Activities Section -->
+    <section id="activities" class="animate-on-scroll">
+        <h2>Activities</h2>
+        <p>
+            The extracurricular activities at St. Xavier's School Sahibganj are integral to our educational philosophy. These activities encourage students to explore their interests, develop new skills, and express their creativity.
+        </p>
+        
+        <div class="activities-container">
+            <div class="activity loading">
+                <div class="image-container">
+                    <img src="https://shayanraza0710.github.io/St-Xaviers-School-Sahibganj/sport.jpeg" alt="Athletics Meet" class="lazy-image"
+                         onerror="handleImageError(this)">
+                </div>
+                <p><i class="fas fa-running"></i> CISCE ZONAL ATHLETICS MEET 2024</p>
+            </div>
+
+            <div class="activity loading">
+                <div class="image-container">
+                    <img src="https://shayanraza0710.github.io/St-Xaviers-School-Sahibganj/spor.jpeg" alt="LTS Event" class="lazy-image"
+                         onerror="handleImageError(this)">
+                </div>
+                <p><i class="fas fa-users"></i> LTS EVENT</p>
+            </div>
+
+            <div class="activity loading">
+                <div class="image-container">
+                    <img src="https://shayanraza0710.github.io/St-Xaviers-School-Sahibganj/spo.jpeg" alt="Cricket Tournament" class="lazy-image"
+                         onerror="handleImageError(this)">
+                </div>
+                <p><i class="fas fa-baseball-ball"></i> SIR MRINAL JORDAR INTER HOUSE CRICKET TOURNAMENT 2024</p>
+            </div>
+
+            <div class="activity loading">
+                <div class="image-container">
+                    <img src="https://shayanraza0710.github.io/St-Xaviers-School-Sahibganj/sp.jpeg" alt="Basketball Tournament" class="lazy-image"
+                         onerror="handleImageError(this)">
+                </div>
+                <p><i class="fas fa-basketball-ball"></i> INTER SCHOOL BASKETBALL TOURNAMENT BOYS U19 2ND, U17 3RD</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Photo Gallery Section -->
+    <section id="gallery" class="animate-on-scroll">
+        <h2>School Photo Gallery</h2>
+        <p>
+            Explore some beautiful moments captured at St. Xavier's School Sahibganj. Our photo gallery showcases the vibrant life and events of our school community.
+        </p>
+        
+        <div class="gallery-container">
+            <div class="gallery-item loading">
+                <div class="image-container">
+                    <img src="https://shayanraza0710.github.io/St-Xaviers-School-Sahibganj/pic.jpeg" alt="School Gallery Image 1" class="lazy-image"
+                         onerror="handleImageError(this)">
+                </div>
+            </div>
+
+            <div class="gallery-item loading">
+                <div class="image-container">
+                    <img src="https://shayanraza0710.github.io/St-Xaviers-School-Sahibganj/pict.jpeg" alt="School Gallery Image 2" class="lazy-image"
+                         onerror="handleImageError(this)">
+                </div>
+            </div>
+
+            <div class="gallery-item loading">
+                <div class="image-container">
+                    <img src="https://shayanraza0710.github.io/St-Xaviers-School-Sahibganj/pictu.jpeg" alt="School Gallery Image 3" class="lazy-image"
+                         onerror="handleImageError(this)">
+                </div>
+            </div>
+
+            <div class="gallery-item loading">
+                <div class="image-container">
+                    <img src="https://shayanraza0710.github.io/St-Xaviers-School-Sahibganj/picture.jpeg" alt="School Gallery Image 4" class="lazy-image"
+                         onerror="handleImageError(this)">
+                </div>
+            </div>
+
+            <div class="gallery-item loading">
+                <div class="image-container">
+                    <img src="https://shayanraza0710.github.io/St-Xaviers-School-Sahibganj/hi.jpg" alt="School Gallery Image 5" class="lazy-image"
+                         onerror="handleImageError(this)">
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Facts Section -->
+    <section id="facts" class="animate-on-scroll">
+        <h2>Facts About Our School</h2>
+        <ul>
+            <li>St. Xavier's School, Sahibganj, is an English-speaking institution committed to building strong language skills and effective communication in students.</li>
+            
+            <li>St. Xavier's School, Sahibganj, stands as one of the most popular schools in Jharkhand, known for its quality education and esteemed reputation.</li>
+            
+            <li>Currently, St. Xavier's School, Sahibganj, is home to over 3,000 students, reflecting its growth and popularity in the region.</li>
+
+            <li>Each classroom at St. Xavier's School, Sahibganj, is equipped with an advanced Android TV smart board, enhancing interactive and modern learning experiences.</li>
+
+            <li>St. Xavier's School, Sahibganj, offers a dedicated school app with features for online fee payment and personalized student profiles, making communication and administration more efficient.</li>
+
+            <li>St. Xavier's School, Sahibganj, offers diverse subjects, including Robotics and Financial Literacy, providing students with practical skills for the future.</li>
+
+            <li>St. Xavier's School, Sahibganj, organizes Activity Days for students, promoting creativity, teamwork, and hands-on learning experiences.</li>
+
+            <li>St. Xavier's School, Sahibganj, organizes various campaigns, such as Leadership Training Service (LTS), to cultivate leadership skills and empower students.</li>
+            
+            <li>There are four houses in St.Xavier's which are as follows LOYOLA, KOSTKA, CAMPION and BRITTO.</li>
+        </ul>
+    </section>
+
+    <!-- Quiz Section -->
+    <section id="Schoolkaquiz" class="animate-on-scroll">
+        <h2>What do you know about St.Xavier's?</h2>
+        
+        <form>
+            <!-- Question 1 -->
+            <div class="question">
+                <label><strong>1. When was the school established?</strong></label>
+                <div>
+                    <input type="radio" name="q1" value="1970" id="q1_1970">
+                    <label for="q1_1970">1970</label>
+                </div>
+                <div>
+                    <input type="radio" name="q1" value="1973" id="q1_1973">
+                    <label for="q1_1973">1973</label>
+                </div>
+                <div>
+                    <input type="radio" name="q1" value="1980" id="q1_1980">
+                    <label for="q1_1980">1980</label>
+                </div>
+                <div>
+                    <input type="radio" name="q1" value="1990" id="q1_1990">
+                    <label for="q1_1990">1990</label>
+                </div>
+            </div>
+
+            <!-- Question 2 -->
+            <div class="question">
+                <label><strong>2. Who is the principal of our school?</strong></label>
+                <div>
+                    <input type="radio" name="q2" value="REV. A. ARUL DOSS S.J" id="q2_1">
+                    <label for="q2_1">REV. Fr. ARUL DOSS S.J</label>
+                </div>
+                <div>
+                    <input type="radio" name="q2" value="REV. Fr. Hilary D'Souza" id="q2_2">
+                    <label for="q2_2">REV. Fr. Hilary D'Souza</label>
+                </div>
+                <div>
+                    <input type="radio" name="q2" value="REV. Fr. A. Nirmal Raj SJ" id="q2_3">
+                    <label for="q2_3">REV. Fr. A. Nirmal Raj SJ</label>
+                </div>
+                <div>
+                    <input type="radio" name="q2" value="Raju Yadav" id="q2_4">
+                    <label for="q2_4">Raju Yadav</label>
+                </div>
+            </div>
+
+            <!-- Question 3 -->
+            <div class="question">
+                <label><strong>3. What is the most awaited event at St. Xavier's School every year?</strong></label>
+                <div>
+                    <input type="radio" name="q3" value="Annual Day" id="q3_1">
+                    <label for="q3_1">Annual Day</label>
+                </div>
+                <div>
+                    <input type="radio" name="q3" value="Science Exhibition" id="q3_2">
+                    <label for="q3_2">Science Exhibition</label>
+                </div>
+                <div>
+                    <input type="radio" name="q3" value="Sports Meet" id="q3_3">
+                    <label for="q3_3">Sports Day</label>
+                </div>
+                <div>
+                    <input type="radio" name="q3" value="Van Mohatsav" id="q3_4">
+                    <label for="q3_4">Van Mohatsav</label>
+                </div>
+            </div>
+
+            <!-- Question 4 -->
+            <div class="question">
+                <label><strong>4. What is the official prayer song of St. Xavier's School?</strong></label>
+                <div>
+                    <input type="radio" name="q4" value="Let There be love" id="q4_1">
+                    <label for="q4_1">Let There be Love</label>
+                </div>
+                <div>
+                    <input type="radio" name="q4" value="Make Me a Channel of Your Peace" id="q4_2">
+                    <label for="q4_2">Make Me a Channel of Your Peace</label>
+                </div>
+                <div>
+                    <input type="radio" name="q4" value="Lord's Prayer" id="q4_3">
+                    <label for="q4_3">Lord's Prayer</label>
+                </div>
+                <div>
+                    <input type="radio" name="q4" value="Prayer for personal growth" id="q4_4">
+                    <label for="q4_4">Prayer for Personal Growth</label>
+                </div>
+            </div>
+
+            <!-- Question 5 -->
+            <div class="question">
+                <label><strong>5. How many computer labs are there in the school?</strong></label>
+                <div>
+                    <input type="radio" name="q5" value="2 labs" id="q5_1">
+                    <label for="q5_1">2 labs</label>
+                </div>
+                <div>
+                    <input type="radio" name="q5" value="3 labs" id="q5_2">
+                    <label for="q5_2">3 labs</label>
+                </div>
+                <div>
+                    <input type="radio" name="q5" value="4 labs" id="q5_3">
+                    <label for="q5_3">4 labs</label>
+                </div>
+                <div>
+                    <input type="radio" name="q5" value="5 labs" id="q5_4">
+                    <label for="q5_4">5 labs</label>
+                </div>
+            </div>
+
+            <!-- Question 6 -->
+            <div class="question">
+                <label><strong>6. What is the school's official website?</strong></label>
+                <div>
+                    <input type="radio" name="q6" value="https://stxaviersschoolsahibganj.com/" id="q6_1">
+                    <label for="q6_1">https://stxaviersschoolsahibganj.com/</label>
+                </div>
+                <div>
+                    <input type="radio" name="q6" value="https://www.sxschool.com" id="q6_2">
+                    <label for="q6_2">https://www.sxschool.com/</label>
+                </div>
+                <div>
+                    <input type="radio" name="q6" value="https://www.xaviers.edu" id="q6_3">
+                    <label for="q6_3">https://www.xaviers.edu/</label>
+                </div>
+                <div>
+                    <input type="radio" name="q6" value="https://www.stxaviers.org" id="q6_4">
+                    <label for="q6_4">https://www.stxaviers.org/</label>
+                </div>
+            </div>
+
+            <button type="button" onclick="checkAnswers()" aria-label="Submit quiz answers">
+                <i class="fas fa-check-circle"></i> Submit Quiz
+            </button>
+        </form>
+
+        <div id="result" role="region" aria-live="polite"></div>
+    </section>
+
+    <!-- Conclusion Section -->
+    <section id="conclusion" class="animate-on-scroll">
+        <h2>Conclusion</h2>
+        <p>
+            I am a student of St. Xavier's School, Sahibganj, and I created this website to share events, and achievements of our school. I made it simple and easy to use so that everyone can learn more about our school and enjoy visiting the site.
+        </p>
+        
+        <p><strong>Made by Students of St. Xavier's School Sahibganj</strong></p>
+        
+        <p><strong>For further enquiry:</strong></p>
+        <ul style="list-style: none; padding: 0; text-align: center;">
+            <li><strong><a href="mailto:shayanraza308@gmail.com"><i class="fas fa-envelope"></i> Shayan Raza</a></strong></li>
+        </ul>
+        
+        <p><strong>Made with <i class="fas fa-heart pulse" style="color: #e74c3c;"></i> by Shayan</strong></p>
+    </section>
+
+    <!-- Premium Footer -->
+    <footer>
+        <div style="max-width: 1200px; margin: 0 auto; position: relative; z-index: 2;">
+            <p style="font-size: 1.1rem; margin-bottom: 1rem;"> © 2025 St. Xavier's School Sahibganj. Website developed by Shayan. All rights reserved.
+</p>
+            <p><a id="mamchange" href="https://stxaviersschoolsahibganj.com/" target="_blank" rel="noopener"><i class="fas fa-external-link-alt"></i> Visit Main Website</a></p>
+        </div>
+    </footer>
+
+    <!-- Enhanced JavaScript -->
+    <script>
+        // Performance optimized initialization
+        document.addEventListener('DOMContentLoaded', () => {
+            initializeAnimations();
+            initializeLazyLoading();
+            initializeNavigation();
+            initializeAccessibility();
+            initializeImageHandling();
+        });
+
+        // Enhanced Image Error Handling
+        function handleImageError(img) {
+            const container = img.closest('.image-container');
+            if (container) {
+                container.innerHTML = `
+                    <div class="image-error">
+                        <div style="text-align: center;">
+                            <i class="fas fa-image" style="font-size: 3rem; margin-bottom: 1rem; opacity: 0.5;"></i>
+                            <p style="margin: 0; font-size: 1rem; opacity: 0.7;">Image not available</p>
+                        </div>
+                    </div>
+                `;
+            } else {
+                img.style.display = 'none';
+                const errorDiv = document.createElement('div');
+                errorDiv.className = 'image-error';
+                errorDiv.innerHTML = `
+                    <div style="text-align: center;">
+                        <i class="fas fa-image" style="font-size: 3rem; margin-bottom: 1rem; opacity: 0.5;"></i>
+                        <p style="margin: 0; font-size: 1rem; opacity: 0.7;">Image not available</p>
+                    </div>
+                `;
+                img.parentNode.insertBefore(errorDiv, img.nextSibling);
+            }
+        }
+
+        // Enhanced Image Loading System
+        function initializeImageHandling() {
+            const images = document.querySelectorAll('.lazy-image');
+            
+            images.forEach(img => {
+                // Add loading placeholder
+                const container = img.closest('.image-container');
+                if (container && !container.querySelector('.image-placeholder')) {
+                    const placeholder = document.createElement('div');
+                    placeholder.className = 'image-placeholder';
+                    placeholder.innerHTML = `
+                        <div style="text-align: center;">
+                            <i class="fas fa-spinner fa-spin" style="font-size: 2rem; margin-bottom: 1rem;"></i>
+                            <p style="margin: 0; font-size: 0.9rem; opacity: 0.7;">Loading...</p>
+                        </div>
+                    `;
+                    container.insertBefore(placeholder, img);
+                }
+
+                // Handle successful load
+                img.addEventListener('load', function() {
+                    this.classList.add('image-loaded');
+                    const placeholder = this.parentNode.querySelector('.image-placeholder');
+                    if (placeholder) {
+                        setTimeout(() => {
+                            placeholder.remove();
+                        }, 300);
+                    }
+                });
+
+                // Handle error
+                img.addEventListener('error', function() {
+                    const placeholder = this.parentNode.querySelector('.image-placeholder');
+                    if (placeholder) {
+                        placeholder.remove();
+                    }
+                    handleImageError(this);
+                });
+            });
+        }
+
+        // Enhanced Read More Toggle with smooth animations
+        function toggleReadMore() {
+            const moreText = document.getElementById("more");
+            const button = event.target;
+            
+            if (moreText.style.display === "none" || moreText.style.display === "") {
+                // Show content with animation
+                moreText.style.display = "block";
+                moreText.style.opacity = "0";
+                moreText.style.transform = "translateY(20px)";
+                
+                // Trigger animation
+                requestAnimationFrame(() => {
+                    moreText.style.transition = "all 0.5s cubic-bezier(0.4, 0, 0.2, 1)";
+                    moreText.style.opacity = "1";
+                    moreText.style.transform = "translateY(0)";
+                });
+                
+                button.innerHTML = '<i class="fas fa-book"></i> Read Less';
+                button.setAttribute('aria-expanded', 'true');
+            } else {
+                // Hide content with animation
+                moreText.style.transition = "all 0.3s cubic-bezier(0.4, 0, 0.2, 1)";
+                moreText.style.opacity = "0";
+                moreText.style.transform = "translateY(-10px)";
+                
+                setTimeout(() => {
+                    moreText.style.display = "none";
+                }, 300);
+                
+                button.innerHTML = '<i class="fas fa-book-open"></i> Read More';
+                button.setAttribute('aria-expanded', 'false');
+            }
+        }
+
+        // Enhanced Quiz Function with better UX
+        function checkAnswers() {
+            let score = 0;
+            let totalQuestions = 6;
+            let feedback = "";
+            let detailedFeedback = [];
+            
+            // Correct answers with explanations
+            const correctAnswers = {
+                q1: {
+                    answer: "1973",
+                    explanation: "St. Xavier's School Sahibganj was established in 1973."
+                },
+                q2: {
+                    answer: "REV. A. ARUL DOSS S.J",
+                    explanation: "REV. Fr. ARUL DOSS S.J is the current principal of the school."
+                },
+                q3: {
+                    answer: "Science Exhibition",
+                    explanation: "The Science Exhibition is one of the most anticipated annual events."
+                },
+                q4: {
+                    answer: "Make Me a Channel of Your Peace",
+                    explanation: "This beautiful prayer song reflects the school's values and mission."
+                },
+                q5: {
+                    answer: "3 labs",
+                    explanation: "The school has 3 well-equipped computer labs for students."
+                },
+                q6: {
+                    answer: "https://stxaviersschoolsahibganj.com/",
+                    explanation: "This is the official website of St. Xavier's School Sahibganj."
+                }
+            };
+            
+            // Check each answer with enhanced feedback
+            for (let i = 1; i <= totalQuestions; i++) {
+                const selected = document.querySelector(`input[name="q${i}"]:checked`);
+                const questionNum = `q${i}`;
+                const correctData = correctAnswers[questionNum];
+                
+                if (selected && selected.value === correctData.answer) {
+                    detailedFeedback.push({
+                        question: i,
+                        correct: true,
+                        explanation: correctData.explanation
+                    });
+                    score++;
+                } else {
+                    detailedFeedback.push({
+                        question: i,
+                        correct: false,
+                        selected: selected ? selected.value : "No answer selected",
+                        correctAnswer: correctData.answer,
+                        explanation: correctData.explanation
+                    });
+                }
+            }
+            
+            // Generate enhanced feedback HTML
+            detailedFeedback.forEach(item => {
+                if (item.correct) {
+                    feedback += `
+                        <div style="color: #27ae60; margin: 15px 0; padding: 15px; background: #f8fff8; border-radius: 8px; border-left: 4px solid #27ae60;">
+                            <div style="display: flex; align-items: center; gap: 10px; margin-bottom: 8px;">
+                                <i class="fas fa-check-circle" style="font-size: 1.2em;"></i>
+                                <strong>Question ${item.question}: Correct!</strong>
+                            </div>
+                            <p style="margin: 0; font-size: 0.95em; opacity: 0.8;">${item.explanation}</p>
+                        </div>
+                    `;
+                } else {
+                    feedback += `
+                        <div style="color: #e74c3c; margin: 15px 0; padding: 15px; background: #fff8f8; border-radius: 8px; border-left: 4px solid #e74c3c;">
+                            <div style="display: flex; align-items: center; gap: 10px; margin-bottom: 8px;">
+                                <i class="fas fa-times-circle" style="font-size: 1.2em;"></i>
+                                <strong>Question ${item.question}: Incorrect</strong>
+                            </div>
+                            <p style="margin: 5px 0; font-size: 0.9em;">Your answer: ${item.selected}</p>
+                            <p style="margin: 5px 0; font-size: 0.9em; color: #27ae60;">Correct answer: ${item.correctAnswer}</p>
+                            <p style="margin: 0; font-size: 0.95em; opacity: 0.8;">${item.explanation}</p>
+                        </div>
+                    `;
+                }
+            });
+            
+            // Calculate percentage and performance level
+            const percentage = Math.round((score / totalQuestions) * 100);
+            let performanceLevel, performanceColor, performanceIcon, performanceMessage;
+            
+            if (percentage === 100) {
+                performanceLevel = "Outstanding";
+                performanceColor = "#f39c12";
+                performanceIcon = "fas fa-trophy";
+                performanceMessage = "Perfect score! You know St. Xavier's very well! 🏆";
+            } else if (percentage >= 80) {
+                performanceLevel = "Excellent";
+                performanceColor = "#27ae60";
+                performanceIcon = "fas fa-star";
+                performanceMessage = "Great job! You have excellent knowledge about the school! ⭐";
+            } else if (percentage >= 60) {
+                performanceLevel = "Good";
+                performanceColor = "#3498db";
+                performanceIcon = "fas fa-thumbs-up";
+                performanceMessage = "Well done! You know quite a bit about St. Xavier's! 👍";
+            } else {
+                performanceLevel = "Keep Learning";
+                performanceColor = "#e74c3c";
+                performanceIcon = "fas fa-redo";
+                performanceMessage = "Keep exploring! There's more to learn about our wonderful school! 📚";
+            }
+            
+            // Display enhanced results
+            const result = document.getElementById("result");
+            result.innerHTML = `
+                <div style="text-align: center; padding: 30px; background: linear-gradient(135deg, #f8f9ff 0%, #f0f4f8 100%); border-radius: 16px; margin-top: 30px; border: 1px solid #e5e7eb; box-shadow: 0 8px 30px rgba(0,0,0,0.1);">
+                    <div style="margin-bottom: 25px;">
+                        <i class="${performanceIcon}" style="font-size: 3em; color: ${performanceColor}; margin-bottom: 15px; display: block;"></i>
+                        <h3 style="color: var(--primary-color); margin: 15px 0; font-size: 1.8em;">Quiz Results</h3>
+                    </div>
+                    
+                    <div style="background: white; padding: 25px; border-radius: 12px; box-shadow: 0 4px 15px rgba(0,0,0,0.1); margin: 20px 0;">
+                        <div style="font-size: 2.5em; font-weight: bold; color: ${performanceColor}; margin-bottom: 10px;">
+                            ${score}/${totalQuestions}
+                        </div>
+                        <div style="font-size: 1.3em; color: ${performanceColor}; font-weight: 600; margin-bottom: 8px;">
+                            ${percentage}% - ${performanceLevel}
+                        </div>
+                        <div style="color: var(--text-medium); font-size: 1.1em; margin-bottom: 20px;">
+                            ${performanceMessage}
+                        </div>
+                        
+                        <div style="background: linear-gradient(90deg, #e0e7ff 0%, ${performanceColor}22 ${percentage}%, #f3f4f6 ${percentage}%, #f3f4f6 100%); height: 12px; border-radius: 6px; margin: 20px 0; position: relative; overflow: hidden;">
+                            <div style="position: absolute; top: 0; left: 0; width: ${percentage}%; height: 100%; background: linear-gradient(90deg, ${performanceColor}, ${performanceColor}dd); border-radius: 6px; transition: width 1s ease-in-out;"></div>
+                        </div>
+                    </div>
+                    
+                    <div style="text-align: left; margin-top: 25px;">
+                        <h4 style="color: var(--primary-color); margin-bottom: 20px; text-align: center; font-size: 1.3em;">
+                            <i class="fas fa-clipboard-list"></i> Detailed Feedback
+                        </h4>
+                        ${feedback}
+                    </div>
+                    
+                    <div style="margin-top: 25px; padding: 20px; background: linear-gradient(135deg, #f0fff4 0%, #f5fffa 100%); border-radius: 10px; border: 1px solid #c3e6cb;">
+                        <p style="margin: 0; color: var(--text-medium); font-style: italic;">
+                            <i class="fas fa-lightbulb"></i> 
+                            ${percentage < 80 ? 
+                                "Consider reading more about St. Xavier's School to improve your knowledge!" : 
+                                "You're well-informed about St. Xavier's School Sahibganj! Keep it up!"
+                            }
+                        </p>
+                    </div>
+                </div>
+            `;
+            
+            // Smooth scroll to results with offset
+            setTimeout(() => {
+                result.scrollIntoView({ 
+                    behavior: 'smooth', 
+                    block: 'center'
+                });
+            }, 100);
+
+            // Add success animation
+            result.style.opacity = '0';
+            result.style.transform = 'translateY(20px)';
+            setTimeout(() => {
+                result.style.transition = 'all 0.5s cubic-bezier(0.4, 0, 0.2, 1)';
+                result.style.opacity = '1';
+                result.style.transform = 'translateY(0)';
+            }, 50);
+        }
+
+        // Enhanced Animation System
+        function initializeAnimations() {
+            const observerOptions = {
+                threshold: 0.15,
+                rootMargin: '0px 0px -50px 0px'
+            };
+
+            const observer = new IntersectionObserver((entries) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        entry.target.classList.add('animated');
+                        
+                        // Animate child elements with stagger effect
+                        const children = entry.target.querySelectorAll('.loading');
+                        children.forEach((child, index) => {
+                            setTimeout(() => {
+                                child.style.opacity = '1';
+                                child.style.animation = `fade-in-up 0.6s ease-out forwards`;
+                            }, index * 150);
+                        });
+                        
+                        observer.unobserve(entry.target);
+                    }
+                });
+            }, observerOptions);
+
+            // Observe all sections and animate-on-scroll elements
+            document.querySelectorAll('.animate-on-scroll').forEach(section => {
+                observer.observe(section);
+            });
+        }
+
+        // Enhanced Lazy Loading with better fallback
+        function initializeLazyLoading() {
+            const images = document.querySelectorAll('.lazy-image');
+            
+            if ('IntersectionObserver' in window) {
+                const imageObserver = new IntersectionObserver((entries) => {
+                    entries.forEach(entry => {
+                        if (entry.isIntersecting) {
+                            const img = entry.target;
+                            
+                            // Set placeholder image source
+                            const width = img.getAttribute('width') || '400';
+                            const height = img.getAttribute('height') || '280';
+                            
+                            if (!img.src || img.src.includes('placeholder')) {
+                                img.src = `/api/placeholder/${width}/${height}`;
+                            }
+                            
+                            imageObserver.unobserve(img);
+                        }
+                    });
+                }, {
+                    rootMargin: '50px'
+                });
+
+                images.forEach(img => {
+                    imageObserver.observe(img);
+                });
+            } else {
+                // Fallback for browsers without IntersectionObserver
+                images.forEach(img => {
+                    const width = img.getAttribute('width') || '400';
+                    const height = img.getAttribute('height') || '280';
+                    img.src = `/api/placeholder/${width}/${height}`;
+                });
+            }
+        }
+
+        // Enhanced Navigation with smooth scrolling
+        function initializeNavigation() {
+            document.querySelectorAll('#nav-menu a[href^="#"]').forEach(anchor => {
+                anchor.addEventListener('click', function (e) {
+                    e.preventDefault();
+                    const target = document.querySelector(this.getAttribute('href'));
+                    
+                    if (target) {
+                        // Add active state animation
+                        this.style.transform = 'scale(0.95)';
+                        setTimeout(() => {
+                            this.style.transform = '';
+                        }, 150);
+                        
+                        // Smooth scroll with custom easing
+                        target.scrollIntoView({
+                            behavior: 'smooth',
+                            block: 'start'
+                        });
+                        
+                        // Add highlight effect to target section
+                        target.style.transform = 'scale(1.01)';
+                        target.style.transition = 'transform 0.3s ease';
+                        setTimeout(() => {
+                            target.style.transform = '';
+                        }, 300);
+                    }
+                });
+            });
+        }
+
+        // Enhanced Accessibility Features
+        function initializeAccessibility() {
+            // Add keyboard navigation for cards
+            document.querySelectorAll('.event, .activity, .gallery-item').forEach(card => {
+                card.setAttribute('tabindex', '0');
+                card.setAttribute('role', 'button');
+                
+                card.addEventListener('keydown', (e) => {
+                    if (e.key === 'Enter' || e.key === ' ') {
+                        e.preventDefault();
+                        const img = card.querySelector('img');
+                        if (img && img.src) {
+                            window.open(img.src, '_blank');
+                        }
+                    }
+                });
+
+                card.addEventListener('click', () => {
+                    const img = card.querySelector('img');
+                    if (img && img.src) {
+                        window.open(img.src, '_blank');
+                    }
+                });
+            });
+
+            // Add skip link for keyboard users
+            const skipLink = document.createElement('a');
+            skipLink.href = '#about';
+            skipLink.textContent = 'Skip to main content';
+            skipLink.className = 'skip-link';
+            skipLink.style.cssText = `
+                position: absolute;
+                top: -40px;
+                left: 6px;
+                background: var(--primary-color);
+                color: white;
+                padding: 8px;
+                text-decoration: none;
+                border-radius: 4px;
+                z-index: 1000;
+                transition: top 0.3s;
+                font-weight: 600;
+            `;
+            
+            skipLink.addEventListener('focus', () => {
+                skipLink.style.top = '6px';
+            });
+            
+            skipLink.addEventListener('blur', () => {
+                skipLink.style.top = '-40px';
+            });
+            
+            document.body.insertBefore(skipLink, document.body.firstChild);
+        }
+
+        // Enhanced Performance Loading
+        window.addEventListener('load', () => {
+            // Add loaded class for final animations
+            document.body.classList.add('loaded');
+            
+            // Initialize any remaining animations
+            setTimeout(() => {
+                document.querySelectorAll('.loading:not([style*="animation"])').forEach((el, index) => {
+                    setTimeout(() => {
+                        el.style.opacity = '1';
+                        el.style.animation = 'fade-in-up 0.6s ease-out forwards';
+                    }, index * 50);
+                });
+            }, 500);
+        });
+
+        // Add smooth page transitions
+        document.addEventListener('visibilitychange', () => {
+            if (document.visibilityState === 'visible') {
+                document.body.style.animation = 'fade-in-up 0.5s ease-out';
+            }
+        });
+
+        // Performance monitoring
+        if ('PerformanceObserver' in window) {
+            const observer = new PerformanceObserver((list) => {
+                list.getEntries().forEach((entry) => {
+                    if (entry.entryType === 'largest-contentful-paint') {
+                        console.log('LCP:', entry.startTime);
+                    }
+                });
+            });
+            observer.observe({entryTypes: ['largest-contentful-paint']});
+        }
+
+        // Service Worker for offline functionality (optional)
+        if ('serviceWorker' in navigator) {
+            window.addEventListener('load', () => {
+                navigator.serviceWorker.register('/sw.js')
+                    .then(registration => {
+                        console.log('SW registered: ', registration);
+                    })
+                    .catch(registrationError => {
+                        console.log('SW registration failed: ', registrationError);
+                    });
+            });
+        }
+    </script>
+</body>
+</html>
